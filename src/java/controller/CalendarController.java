@@ -91,7 +91,7 @@ public void test()   {
  st = task.getStart();
 //task.getNumber(1);
 // getNumber(4) -hours
-//
+// gettext 1 - Z01074-G, 2 - Корпуса редукторов - 20 шт, 3- LNS33552X902-OP6+OP9-W, 4 - 181\1, 5-018,6-участок 018
  for (ii=1; ii<20; ii++){
  if (task.getNumber(ii) != null && task.getNumber(ii).doubleValue()>  0.0)
   System.out.println("Assignments for task " + task.getName() + ":");   
