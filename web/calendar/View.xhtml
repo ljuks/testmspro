@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CalendarViewDlg" widgetVar="CalendarViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCalendarTitle}">
+            <h:form id="CalendarViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{calendarController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCalendarLabel_name}"/>
+                        <h:outputText value="#{calendarController.selected.name}" title="#{bundle.ViewCalendarTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewCalendarLabel_id}"/>
+                        <h:outputText value="#{calendarController.selected.id}" title="#{bundle.ViewCalendarTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewCalendarLabel_userid}"/>
+                        <h:outputText value="#{calendarController.selected.userid}" title="#{bundle.ViewCalendarTitle_userid}"/>
+                        <h:outputText value="#{bundle.ViewCalendarLabel_date}"/>
+                        <h:outputText value="#{calendarController.selected.date}" title="#{bundle.ViewCalendarTitle_date}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCalendarLabel_time}"/>
+                        <h:outputText value="#{calendarController.selected.time}" title="#{bundle.ViewCalendarTitle_time}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCalendarLabel_comment}"/>
+                        <h:outputText value="#{calendarController.selected.comment}" title="#{bundle.ViewCalendarTitle_comment}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CalendarViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
